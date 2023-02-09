@@ -75,4 +75,28 @@ export class ListProductsComponent implements OnInit {
       }
     );
   }
+
+  freeProduct(id: string) {
+    this.buying = true;
+    this.productService.freeProduct(id).subscribe(
+      (res) => {
+        alert('you freed product successfully');
+        this.buying = false;
+        this.products = this.products.map((p) => {
+          if (p._id === id) {
+            p.status = 'Available';
+          }
+          return p;
+        });
+      },
+      (err) => {
+        if (err && err.error?.message) {
+          alert(err.error?.message);
+        } else {
+          alert("can't delete product now");
+        }
+        this.buying = false;
+      }
+    );
+  }
 }

@@ -1,4 +1,4 @@
-<div class="col">
+<div class="col" (click)="gotoProductDetails()">
   <div class="card shadow-sm">
     <img [src]="data?.coverImg" />
     <div class="card-body">
@@ -10,8 +10,10 @@
             data?.status === 'sold' ? 'Sold' : 'Available'
 
             }}</div>
-          <button (click)="buyProt()" *ngIf="!isAdmin && !callingApi && data?.status !== 'sold'" type="button"
+          <button (click)="buyProd()" *ngIf="!isAdmin && !callingApi && data?.status !== 'sold'" type="button"
             class="btn btn-sm btn-outline-success">Buy</button>
+          <button (click)="freeProduct()" *ngIf="isAdmin && !callingApi && data?.status === 'sold'" type="button"
+            class="btn btn-sm btn-outline-success">Free</button>
           <button (click)="deleteProd()" *ngIf="isAdmin && !callingApi" type="button"
             class="btn btn-sm btn-outline-danger">Delete</button>
           <div *ngIf="callingApi" class="spinner-border" role="status"></div>

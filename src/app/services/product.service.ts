@@ -46,4 +46,15 @@ export class ProductService {
       productID,
     });
   }
+
+  freeProduct(productID: string) {
+    let url = '/product/free';
+    return this.apiService.post(
+      url,
+      {
+        productID,
+      },
+      true
+    );
+  }
 }
