@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminOnlyGuard } from './guards/admin.guard';
+import { AddProductComponent } from './pages/add-product/add-product.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListProductsComponent } from './pages/list-products/list-products.component';
 import { ListUsersComponent } from './pages/list-users/list-users.component';
@@ -19,6 +21,11 @@ const routes: Routes = [
       { path: '', redirectTo: 'products', pathMatch: 'full' },
       { path: 'users', component: ListUsersComponent },
       { path: 'products', component: ListProductsComponent },
+      {
+        path: 'addproduct',
+        component: AddProductComponent,
+        // canActivate: [AdminOnlyGuard],
+      },
     ],
   },
   {

@@ -1,15 +1,23 @@
 <div class="col">
   <div class="card shadow-sm">
-    <img src="https://techguy.co.ke/wp-content/uploads/2022/11/real-estate.jpg" />
+    <img [src]="data?.coverImg" />
     <div class="card-body">
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
-        This content is a little bit longer.</p>
+      <p class="card-text">{{data?.title}}</p>
+      <p class="card-text">{{data?.address}}</p>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-          <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
+          <div class="state btn btn-sm btn-outline-secondary">{{
+            data?.status === 'sold' ? 'Sold' : 'Available'
+
+            }}</div>
+          <button (click)="buyProt()" *ngIf="!isAdmin && !callingApi && data?.status !== 'sold'" type="button"
+            class="btn btn-sm btn-outline-success">Buy</button>
+          <button (click)="deleteProd()" *ngIf="isAdmin && !callingApi" type="button"
+            class="btn btn-sm btn-outline-danger">Delete</button>
+          <div *ngIf="callingApi" class="spinner-border" role="status"></div>
+
         </div>
-        <small class="text-muted">9000 EGP</small>
+        <small class="text-muted">{{data?.price}} EGP</small>
       </div>
     </div>
   </div>

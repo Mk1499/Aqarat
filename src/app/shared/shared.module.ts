@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from '../app-routing.module';
 import { NavbarComponent } from '../components/navbar/navbar.component';
@@ -12,7 +13,7 @@ import { UserCardComponent } from '../components/user-card/user-card.component';
     ProductCardComponent,
     UserCardComponent,
   ],
-  imports: [AppRoutingModule],
+  imports: [AppRoutingModule, CommonModule],
   exports: [
     SidebarComponent,
     NavbarComponent,

@@ -9,6 +9,12 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ListProductsComponent } from './pages/list-products/list-products.component';
 import { ListUsersComponent } from './pages/list-users/list-users.component';
+import { AddProductComponent } from './pages/add-product/add-product.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -18,8 +24,18 @@ import { ListUsersComponent } from './pages/list-users/list-users.component';
     RegisterComponent,
     ListProductsComponent,
     ListUsersComponent,
+    AddProductComponent,
+    ProductDetailsComponent,
+    UserDetailsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, SharedModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SharedModule,
+    HttpClientModule,
+    FormsModule,
+    CommonModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
