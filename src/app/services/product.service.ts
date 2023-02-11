@@ -57,4 +57,9 @@ export class ProductService {
       true
     );
   }
+
+  getProductDetails(productID: string) {
+    let url = `/product/${productID}`;
+    return this.apiService.get(url);
+  }
 }

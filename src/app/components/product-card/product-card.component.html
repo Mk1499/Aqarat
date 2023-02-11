@@ -5,7 +5,7 @@
       <p class="card-text">{{data?.title}}</p>
       <p class="card-text">{{data?.address}}</p>
       <div class="d-flex justify-content-between align-items-center">
-        <div class="btn-group">
+        <div class="btn-group" (click)="$event.stopPropagation()">
           <div class="state btn btn-sm btn-outline-secondary">{{
             data?.status === 'sold' ? 'Sold' : 'Available'
 
